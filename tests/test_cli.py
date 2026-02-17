@@ -27,12 +27,17 @@ def test_scan_command_with_custom_args():
     parser = create_parser()
 
     # When
-    args = parser.parse_args([
-        "scan",
-        "--network", "10.0.0.0/16",
-        "--output", "result.json",
-        "--format", "json",
-    ])
+    args = parser.parse_args(
+        [
+            "scan",
+            "--network",
+            "10.0.0.0/16",
+            "--output",
+            "result.json",
+            "--format",
+            "json",
+        ]
+    )
 
     # Then
     assert args.network == "10.0.0.0/16"
@@ -61,12 +66,17 @@ def test_discover_command_with_custom_args():
     parser = create_parser()
 
     # When
-    args = parser.parse_args([
-        "discover",
-        "-n", "172.16.0.0/24",
-        "-c", "5",
-        "-o", "discovery.yaml",
-    ])
+    args = parser.parse_args(
+        [
+            "discover",
+            "-n",
+            "172.16.0.0/24",
+            "-c",
+            "5",
+            "-o",
+            "discovery.yaml",
+        ]
+    )
 
     # Then
     assert args.network == "172.16.0.0/24"
@@ -80,11 +90,15 @@ def test_classify_command_with_defaults():
     parser = create_parser()
 
     # When
-    args = parser.parse_args([
-        "classify",
-        "--input", "discovery.yaml",
-        "--output", "classified.yaml",
-    ])
+    args = parser.parse_args(
+        [
+            "classify",
+            "--input",
+            "discovery.yaml",
+            "--output",
+            "classified.yaml",
+        ]
+    )
 
     # Then
     assert args.command == "classify"
